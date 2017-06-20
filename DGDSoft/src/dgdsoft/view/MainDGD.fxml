@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="parentContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDController">
+   <children>
+      <AnchorPane prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;;">
+         <children>
+            <Label layoutX="-1.0" layoutY="60.0" prefHeight="3.0" prefWidth="1103.0" style="-fx-background-color: BLACK;" />
+            <Pane layoutX="388.0" layoutY="21.0" prefHeight="189.0" prefWidth="325.0" style="-fx-background-color: #3196DE;" />
+         </children>
+      </AnchorPane>
+      <HBox fx:id="menusHolder" layoutX="71.0" layoutY="356.0" prefHeight="237.0" prefWidth="959.0">
+         <children>
+            <Button fx:id="PLANE" mnemonicParsing="false" onAction="#openPlanes" prefHeight="238.0" prefWidth="177.0" text="Button" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

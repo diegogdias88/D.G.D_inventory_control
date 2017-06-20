@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
      @author diego
@@ -15,11 +16,13 @@ public class DGDSoft extends Application {
        
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/MainDGD.fxml"));
         Scene scene = new Scene(root);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
+        
     }
 
     
