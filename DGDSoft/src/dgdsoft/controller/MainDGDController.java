@@ -29,8 +29,9 @@ public class MainDGDController implements Initializable {
     @FXML    private Group groupPlanes;
     @FXML    private HBox menusHolder;
     @FXML    private AnchorPane parentContainer;
-    @FXML    private Button PLANE;
-    
+    @FXML    private Button Cadastro;
+    @FXML    private Button Movimentacao;
+    @FXML    private Button Relatorio;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -38,13 +39,13 @@ public class MainDGDController implements Initializable {
     }    
     
     @FXML
-    private void openPlanes() {
+    private void openCadastro() {
         openStage("/dgdsoft/view/Cadastro.fxml");
     }
     
     private void openStage(String fxml) {
         try {
-            Stage currentStage = (Stage) PLANE.getScene().getWindow();
+            Stage currentStage = (Stage) Cadastro.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Scene scene = new Scene(root);
             Stage stage = new Stage(StageStyle.TRANSPARENT);

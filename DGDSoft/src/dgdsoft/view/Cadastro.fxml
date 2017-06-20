@@ -7,9 +7,23 @@
 <?import javafx.scene.layout.*?>
 
 
-<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.CadastroController">
+<VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="680.0" prefWidth="1000.0" />
-      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <SplitPane dividerPositions="0.15731462925851702" prefHeight="600.0" prefWidth="1000.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #2981BD;">
+               <children>
+                  <Button layoutX="14.0" layoutY="78.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="123.0" text="Cliente" />
+                  <Button layoutX="14.0" layoutY="222.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="123.0" text="Forencedor" />
+                  <Button layoutX="14.0" layoutY="368.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="123.0" text="Produto" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane fx:id="anchorPane" prefHeight="598.0" prefWidth="838.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
-</StackPane>
+</VBox>
