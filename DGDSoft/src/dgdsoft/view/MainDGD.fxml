@@ -60,6 +60,11 @@
                   </ImageView>
                </children>
             </Pane>
+            <ImageView fx:id="imgExit" fitHeight="26.0" fitWidth="26.0" layoutX="1074.0" layoutY="8.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagem/exit.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Button fx:id="Cadastro" layoutX="215.0" layoutY="366.0" mnemonicParsing="false" onAction="#openCadastro" prefHeight="238.0" prefWidth="177.0" text="Cadastros" />

@@ -39,6 +39,11 @@ public class MainDGDController implements Initializable {
     }    
     
     @FXML
+    private void exit(javafx.scene.input.MouseEvent event) {
+        Platform.exit();
+    }
+    
+    @FXML
     private void openCadastro() {
         openStage("/dgdsoft/view/Cadastro.fxml");
     }
