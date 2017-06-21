@@ -15,8 +15,8 @@
                <children>
                   <TableView fx:id="tableViewProdutos" layoutX="28.0" layoutY="57.0" prefHeight="596.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="tableColumnProdutoNome" prefWidth="148.0" text="Nome" />
-                        <TableColumn fx:id="tableColumnQtdEstoque" prefWidth="56.0" text="Estoque" />
+                      <TableColumn fx:id="tableColumnProdutoNome" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Nome" />
+                        <TableColumn fx:id="tableColumnQtdEstoque" maxWidth="54.0" minWidth="54.0" prefWidth="54.0" resizable="false" text="Estoque" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
