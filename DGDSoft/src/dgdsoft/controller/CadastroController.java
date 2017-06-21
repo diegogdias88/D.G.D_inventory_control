@@ -10,9 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -29,7 +31,7 @@ public class CadastroController implements Initializable {
     @FXML   private Button btnCadProduto;
     @FXML   private ImageView imgExit;
     @FXML   private ImageView imgInfo;
-    
+           
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
