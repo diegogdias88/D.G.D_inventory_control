@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -10,10 +11,133 @@
    <children>
       <SplitPane dividerPositions="0.25" layoutX="8.0" prefHeight="598.0" prefWidth="838.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="298.0" layoutY="6.0" text="Cadastro de Cliente" />
+                  <TableView fx:id="tableViewClientes" layoutX="3.0" layoutY="8.0" prefHeight="596.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnClienteNome" prefWidth="75.0" text="Nome" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="298.0" layoutY="6.0" text="Cadastro de Cliente">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <GridPane layoutX="26.0" layoutY="85.0" prefHeight="305.0" prefWidth="579.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="72.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="135.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="60.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="106.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="108.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Codigo">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nome" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Est. Civil" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Endereço" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Bairro" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Telefone" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ClienteTelefone" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="ClienteBairro" prefHeight="17.0" prefWidth="149.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="ClienteEnd" prefHeight="17.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="boxEstCivil" prefHeight="17.0" prefWidth="108.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="ClienteNome" prefHeight="17.0" prefWidth="224.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelClienteCodigo" prefHeight="17.0" prefWidth="38.0" text="00" GridPane.columnIndex="1" />
+                        <Label fx:id="boxSexo" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label text="Sexo" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nacionalidade" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="27.0" text="CPF" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="RG" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ClienteRG" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Label fx:id="ClienteCPF" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label fx:id="boxNacionalidade" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Label text="Celular" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="UF" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Cidade" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nº" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Email" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ClienteCidade" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <Label fx:id="ClienteUF" prefHeight="17.0" prefWidth="18.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label fx:id="ClienteEmail" prefHeight="17.0" prefWidth="155.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                        <Label fx:id="ClienteCelular" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Label fx:id="ClienteNumero" prefHeight="17.0" prefWidth="64.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
                </children>
             </AnchorPane>
         </items>
