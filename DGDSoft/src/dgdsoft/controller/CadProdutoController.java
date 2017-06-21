@@ -4,6 +4,7 @@ import dgdsoft.model.dao.ProdutoDAO;
 import dgdsoft.model.database.Database;
 import dgdsoft.model.database.DatabaseFactory;
 import dgdsoft.model.domain.Produto;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
@@ -11,11 +12,16 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -90,6 +96,68 @@ public class CadProdutoController implements Initializable {
         }else{
             //ClienteNome.setText("");
         }
+    }
+    
+    @FXML
+    public void handleBtnInserir() throws IOException{
+        Produto produto = new Produto();
+        boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosProdutoDialog(produto);
+        
+        if(btnConfirmarClicked){
+            produtoDao.inserir(produto);
+            carregarTableVielProduto();
+        }
+    }
+    
+    @FXML
+    public void handleBtnAlterar() throws IOException{
+        Produto produto = tableViewProdutos.getSelectionModel().getSelectedItem();
+        if(produto != null){
+            boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosProdutoDialog(produto);
+            if(btnConfirmarClicked){
+                produtoDao.alterar(produto);
+                carregarTableVielProduto();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Por favor, escolha um produto na Tabela");
+            alert.show();
+        }
+    }
+    
+    @FXML
+    public void handleBtnExcluir()throws IOException{
+        Produto produto = tableViewProdutos.getSelectionModel().getSelectedItem();
+        if(produto != null){
+            produtoDao.remover(produto);
+            carregarTableVielProduto();
+        }else{
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setContentText("Por favor, escolha um produto na Tabela");
+           alert.show(); 
+        }
+    }
+    
+    public boolean showFXMLAnchorPaneCadastrosProdutoDialog(Produto produto) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(CadProdutoDialogController.class.getResource("/dgdsoft/view/CadProdutoDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        
+        //cria um estagio de dialogo(Stage Dialog)
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Cadastros de Produtos");
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        
+        //setando o cliente no controller
+        CadProdutoDialogController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setProduto(produto);
+        
+        //mostra o dialog  e espera ate que o usuario o feche
+        dialogStage.showAndWait();
+        
+        return controller.isBtnConfirmarClicked();
     }
     
 }

@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="705.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxmvc.controller.FXMLAnchorPaneCadastrosFornecedorDialogController">
+<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.CadFornecedorDialogController">
    <children>
       <Label layoutX="30.0" layoutY="274.0" text="Email" />
       <Label layoutX="30.0" layoutY="218.0" text="Bairro" />

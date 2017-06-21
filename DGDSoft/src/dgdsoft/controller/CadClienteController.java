@@ -5,6 +5,7 @@ import dgdsoft.model.dao.ClienteDAO;
 import dgdsoft.model.database.Database;
 import dgdsoft.model.database.DatabaseFactory;
 import dgdsoft.model.domain.Cliente;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
@@ -12,12 +13,17 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -109,6 +115,68 @@ public class CadClienteController implements Initializable {
             ClienteCPF.setText("");
             ClienteTelefone.setText("");
         }
+    }
+    
+    @FXML
+    public void handleBtnInserir() throws IOException{
+        Cliente cliente = new Cliente();
+        boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosClientesDialog(cliente);
+        
+        if(btnConfirmarClicked){
+            clienteDao.inserir(cliente);
+            carregarTableVielCliente();
+        }
+    }
+    
+    @FXML
+    public void handleBtnAlterar() throws IOException{
+        Cliente cliente = tableViewClientes.getSelectionModel().getSelectedItem();
+        if(cliente != null){
+            boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosClientesDialog(cliente);
+            if(btnConfirmarClicked){
+                clienteDao.alterar(cliente);
+                carregarTableVielCliente();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Por favor, escolha um cliente na Tabela");
+            alert.show();
+        }
+    }
+    
+    @FXML
+    public void handleBtnExcluir()throws IOException{
+        Cliente cliente = tableViewClientes.getSelectionModel().getSelectedItem();
+        if(cliente != null){
+            clienteDao.remover(cliente);
+            carregarTableVielCliente();
+        }else{
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setContentText("Por favor, escolha um cliente na Tabela");
+           alert.show(); 
+        }
+    }
+    
+    public boolean showFXMLAnchorPaneCadastrosClientesDialog(Cliente cliente) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(CadClienteDialogController.class.getResource("/dgdsoft/view/CadClienteDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        
+        //cria um estagio de dialogo(Stage Dialog)
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Cadastros de Clientes");
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        
+        //setando o cliente no controller
+        CadClienteDialogController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setCliente(cliente);
+        
+        //mostra o dialog  e espera ate que o usuario o feche
+        dialogStage.showAndWait();
+        
+        return controller.isBtnConfirmarClicked();
     }
     
 }

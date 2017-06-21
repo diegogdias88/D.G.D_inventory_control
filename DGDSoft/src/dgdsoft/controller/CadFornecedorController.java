@@ -4,6 +4,7 @@ import dgdsoft.model.dao.FornecedorDAO;
 import dgdsoft.model.database.Database;
 import dgdsoft.model.database.DatabaseFactory;
 import dgdsoft.model.domain.Fornecedor;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
@@ -11,11 +12,16 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -102,6 +108,68 @@ public class CadFornecedorController implements Initializable {
             FornecedorEmail.setText("");
             FornecedorNumero.setText("");
         }
+    }
+   
+    @FXML
+    public void handleBtnInserir() throws IOException{
+        Fornecedor fornecedor = new Fornecedor();
+        boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosFornecedorDialog(fornecedor);
+        
+        if(btnConfirmarClicked){
+            fornecedorDAO.inserir(fornecedor);
+            carregarTableVielFornecedor();
+        }
+    }
+    
+    @FXML
+    public void handleBtnAlterar() throws IOException{
+        Fornecedor fornecedor = tableViewFornecedor.getSelectionModel().getSelectedItem();
+        if(fornecedor != null){
+            boolean btnConfirmarClicked = showFXMLAnchorPaneCadastrosFornecedorDialog(fornecedor);
+            if(btnConfirmarClicked){
+                fornecedorDAO.alterar(fornecedor);
+                carregarTableVielFornecedor();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Por favor, escolha um fornecedor na Tabela");
+            alert.show();
+        }
+    }
+    
+    @FXML
+    public void handleBtnExcluir()throws IOException{
+        Fornecedor fornecedor = tableViewFornecedor.getSelectionModel().getSelectedItem();
+        if(fornecedor != null){
+            fornecedorDAO.remover(fornecedor);
+            carregarTableVielFornecedor();
+        }else{
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setContentText("Por favor, escolha um fornecedor na Tabela");
+           alert.show(); 
+        }
+    }
+    
+    public boolean showFXMLAnchorPaneCadastrosFornecedorDialog(Fornecedor fornecedor) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(CadFornecedorDialogController.class.getResource("/dgdsoft/view/CadFornecedorDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        
+        //cria um estagio de dialogo(Stage Dialog)
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Cadastros de Fornecedores");
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        
+        //setando o Fornecedor no controller
+        CadFornecedorDialogController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setFornecedor(fornecedor);
+        
+        //mostra o dialog  e espera ate que o usuario o feche
+        dialogStage.showAndWait();
+        
+        return controller.isBtnConfirmarClicked();
     }
     
 }

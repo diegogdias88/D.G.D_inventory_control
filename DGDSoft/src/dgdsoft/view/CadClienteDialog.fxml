@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLAnchorPaneCadastrosClientesDialogController">
+<AnchorPane id="AnchorPane" prefHeight="378.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.CadClienteDialogController">
    <children>
       <TextField fx:id="ClienteEmail" layoutX="400.0" layoutY="270.0" prefHeight="25.0" prefWidth="224.0" />
       <Label layoutX="363.0" layoutY="274.0" text="Email" />

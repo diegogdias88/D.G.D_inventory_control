@@ -138,6 +138,9 @@
                         <Label fx:id="ClienteNumero" prefHeight="17.0" prefWidth="64.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <Button fx:id="btnRemover" layoutX="529.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleBtnExcluir" text="Remover" />
+                  <Button fx:id="btnAlterar" layoutX="455.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleBtnAlterar" prefHeight="25.0" prefWidth="64.0" text="Alterar" />
+                  <Button fx:id="btnInserir" layoutX="381.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleBtnInserir" prefHeight="25.0" prefWidth="64.0" text="Inserir" />
                </children>
             </AnchorPane>
         </items>
