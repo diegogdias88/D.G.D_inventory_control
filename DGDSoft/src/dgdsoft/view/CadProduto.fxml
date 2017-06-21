@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -10,10 +11,116 @@
    <children>
       <SplitPane dividerPositions="0.25" layoutX="18.0" layoutY="10.0" prefHeight="608.0" prefWidth="856.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="298.0" layoutY="14.0" text="Cadastro de Produto" />
+                  <TableView fx:id="tableViewProdutos" layoutX="28.0" layoutY="57.0" prefHeight="596.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnProdutoNome" prefWidth="148.0" text="Nome" />
+                        <TableColumn fx:id="tableColumnQtdEstoque" prefWidth="56.0" text="Estoque" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="298.0" layoutY="14.0" text="Cadastro de Produto">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <GridPane layoutX="23.0" layoutY="108.0" prefHeight="305.0" prefWidth="579.0">
+                     <children>
+                        <Label text="Codigo">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nome" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Fornec." GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Categoria" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Valor Custo" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Estoque" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ProdutoEstoque" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="ProdutoValorCusto" prefHeight="17.0" prefWidth="149.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="ProdutoCategoria" prefHeight="17.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="ProdutoFornecedor" prefHeight="17.0" prefWidth="108.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="ProdutoNome" prefHeight="17.0" prefWidth="224.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="ProdutoCodigo" prefHeight="17.0" prefWidth="38.0" text="00" GridPane.columnIndex="1" />
+                        <Label text="Cód. Barras" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="CNAE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ProdutoCNAE" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Label fx:id="ProdutoCodBarras" prefHeight="17.0" prefWidth="102.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Label text="\% Lucro" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Valor Venda" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Unidade" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Estoqu Min." GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ProdutoValorVenda" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <Label fx:id="ProdutoLucro" prefHeight="17.0" prefWidth="18.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label fx:id="ProdutoEstoqueMin" prefHeight="17.0" prefWidth="155.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                        <Label fx:id="ProdutoUnidade" prefHeight="17.0" prefWidth="64.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="102.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="103.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="60.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="106.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="108.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
                </children>
             </AnchorPane>
          </items>
