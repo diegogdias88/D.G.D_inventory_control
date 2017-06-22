@@ -49,6 +49,11 @@ public class MainDGDController implements Initializable {
         openStage("/dgdsoft/view/Cadastro.fxml");
     }
     
+    @FXML
+    private void openMovimentacao() {
+        openStage("/dgdsoft/view/Movimentacao.fxml");
+    }
+    
     private void openStage(String fxml) {
         try {
             Stage currentStage = (Stage) Cadastro.getScene().getWindow();
