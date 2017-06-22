@@ -52,4 +52,17 @@ public class MovimentacaoController implements Initializable {
 
     }
     
+    @FXML
+    public void handleBtnMovCompra() throws IOException{
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/MovCompra.fxml"));
+        anchorPane.getChildren().setAll(a);
+    }
+    
+    @FXML
+    public void handleBtnMovVenda() throws IOException{
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/MovVenda.fxml"));
+        anchorPane.getChildren().setAll(a);
+    }
+    
+    
 }
