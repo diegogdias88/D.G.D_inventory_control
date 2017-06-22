@@ -142,7 +142,7 @@ public class ClienteDAO {
     }
 
     public Cliente buscar(Cliente cliente) {
-        String sql = "SELECT * FROM clientes WHERE cdCliente=?";
+        String sql = "SELECT * FROM cliente WHERE id=?";
         Cliente retorno = new Cliente();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);

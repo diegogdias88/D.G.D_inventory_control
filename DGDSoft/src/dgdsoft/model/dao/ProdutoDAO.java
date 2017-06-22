@@ -113,7 +113,7 @@ public class ProdutoDAO {
     }
     
     public List<Produto> listarPorCategoria(Categoria categoria) {
-        String sql = "SELECT * FROM produtos WHERE cdCategoria=?";
+        String sql = "SELECT * FROM produto WHERE cdCategoria=?";
         List<Produto> retorno = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class ProdutoDAO {
             ResultSet resultado = stmt.executeQuery();
             while (resultado.next()) {
                 Produto produto = new Produto();
-                produto.setCdProduto(resultado.getInt("cdProduto"));
+                produto.setCdProduto(resultado.getInt("id"));
                 produto.setNome(resultado.getString("nome"));
                 //produto.setPreco(resultado.getDouble("preco"));
                 //produto.setQuantidade(resultado.getInt("quantidade"));
@@ -136,7 +136,7 @@ public class ProdutoDAO {
     }
 
     public Produto buscar(Produto produto) {
-        String sql = "SELECT * FROM produtos WHERE cdProduto=?";
+        String sql = "SELECT * FROM produto WHERE id=?";
         Produto retorno = new Produto();
         Categoria categoria = new Categoria();
         try {
@@ -144,7 +144,7 @@ public class ProdutoDAO {
             stmt.setInt(1, produto.getCdProduto());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
-                retorno.setCdProduto(resultado.getInt("cdProduto"));
+                retorno.setCdProduto(resultado.getInt("id"));
                 retorno.setNome(resultado.getString("nome"));
                 //retorno.setPreco(resultado.getDouble("preco"));
                 //retorno.setQuantidade(resultado.getInt("quantidade"));
