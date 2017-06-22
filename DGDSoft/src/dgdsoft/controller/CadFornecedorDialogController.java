@@ -20,6 +20,10 @@ import dgdsoft.model.database.Database;
 import dgdsoft.model.database.DatabaseFactory;
 import dgdsoft.model.domain.CidadeEstado;
 import dgdsoft.model.domain.Fornecedor;
+import java.util.Optional;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class CadFornecedorDialogController implements Initializable {
 
@@ -200,8 +204,23 @@ public class CadFornecedorDialogController implements Initializable {
     }
     
     @FXML
-    public void handleBtnCancelar(){
-        dialogStage.close();
+    private void handleBtnCancelar(ActionEvent event){
+	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+	alert.setTitle("Aviso!");//titulo
+	alert.setHeaderText("Você esta prestes a fechar esta tela.");//exto do corpo do texto
+	alert.setContentText("Deseja realmente sair?");//texto  em baixo
+	
+	ButtonType buttonSim = new ButtonType("Sim");//1 bot~]ao opção
+	ButtonType buttonNao = new ButtonType("Não");//2 bot~]ao opção
+	
+	alert.getButtonTypes().setAll(buttonSim,buttonNao); //coloca os botões no alerta
+	
+	Optional<ButtonType> result = alert.showAndWait();//cria um result onde é para esperar clicar em uma tela para executar uma função
+	if(result.get() ==buttonSim){
+		dialogStage.close();
+	}else if(result.get() == buttonNao){
+		alert.close();
+	}
     }
     
 }
