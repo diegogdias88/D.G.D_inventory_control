@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -42,6 +43,7 @@ public class CadastroController implements Initializable {
         Platform.exit();
     }
     
+        
      @FXML
     private void goHomeAA(MouseEvent event) throws IOException {
         Stage newStage = new Stage();

@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -57,6 +58,7 @@ public class MainDGDController implements Initializable {
             stage.setScene(scene);
             stage.show();
             currentStage.hide();
+            stage.getIcons().add(new Image (getClass().getResourceAsStream("/dgdsoft/imagem/balance.png")));
 
         } catch (IOException ex) {
             Logger.getLogger(MainDGDController.class.getName()).log(Level.SEVERE, null, ex);
