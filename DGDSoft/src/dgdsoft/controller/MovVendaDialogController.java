@@ -121,7 +121,7 @@ public class MovVendaDialogController implements Initializable {
         if (comboBoxVendaProduto.getSelectionModel().getSelectedItem() != null) {
             produto = (Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem();
 
-            if (produto.getQuantidade() >= Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText())) {
+            if (produto.getEstoque() >= Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText())) {
                 itemDeVenda.setProduto((Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem());
                 itemDeVenda.setQuantidade(Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText()));
                 itemDeVenda.setValor(itemDeVenda.getProduto().getValorvenda()* itemDeVenda.getQuantidade());
