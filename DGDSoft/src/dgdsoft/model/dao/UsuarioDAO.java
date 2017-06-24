@@ -21,16 +21,17 @@ public class UsuarioDAO {
     }
     
     public Usuario buscar(Usuario usuario){
-        String sql = "select * from usuario where user = ? and password = ?";
+        String sql = "select * from usuario where usuario = ? and senha = ?";
         Usuario retorno = new Usuario();
+        boolean existe = false;
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1,usuario.getUser());
             stmt.setString(2, usuario.getPassword());
             ResultSet resultado = stmt.executeQuery();
             if(resultado.next()){
-                usuario.setUser(resultado.getString("user"));
-                usuario.setPassword(resultado.getString("password"));
+                usuario.setUser(resultado.getString("usuario"));
+                usuario.setPassword(resultado.getString("senha"));
                 retorno = usuario;
             }
         }catch (SQLException ex) {
