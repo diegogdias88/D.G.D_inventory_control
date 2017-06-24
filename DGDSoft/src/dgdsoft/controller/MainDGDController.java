@@ -1,5 +1,6 @@
 package dgdsoft.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -30,9 +31,10 @@ public class MainDGDController implements Initializable {
     @FXML    private Group groupPlanes;
     @FXML    private HBox menusHolder;
     @FXML    private AnchorPane parentContainer;
-    @FXML    private Button Cadastro;
-    @FXML    private Button Movimentacao;
-    @FXML    private Button Relatorio;
+    
+    @FXML   private JFXButton Cadastro;
+    @FXML   private JFXButton Movimentacao;
+    @FXML   private JFXButton Relatorio;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

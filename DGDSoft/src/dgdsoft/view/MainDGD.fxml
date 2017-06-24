@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -67,8 +68,8 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="Cadastro" layoutX="215.0" layoutY="366.0" mnemonicParsing="false" onAction="#openCadastro" prefHeight="238.0" prefWidth="177.0" text="Cadastros" />
-      <Button fx:id="Movimentacao" layoutX="462.0" layoutY="366.0" mnemonicParsing="false" onAction="#openMovimentacao" prefHeight="238.0" prefWidth="177.0" text="Movimentações" />
-      <Button fx:id="Relatorio" layoutX="711.0" layoutY="366.0" mnemonicParsing="false" prefHeight="238.0" prefWidth="177.0" text="Relatrórios" />
+      <JFXButton fx:id="Cadastro" buttonType="RAISED" layoutX="224.0" layoutY="366.0" onAction="#openCadastro" prefHeight="238.0" prefWidth="177.0" style="-fx-background-color: #2981BD;" text="Cadastros" />
+      <JFXButton fx:id="Movimentacao" buttonType="RAISED" layoutX="462.0" layoutY="366.0" onAction="#openMovimentacao" prefHeight="238.0" prefWidth="177.0" style="-fx-background-color: #2981BD;" text="Movimentações" />
+      <JFXButton fx:id="Relatorio" buttonType="RAISED" layoutX="692.0" layoutY="366.0" prefHeight="238.0" prefWidth="177.0" style="-fx-background-color: #2981BD;" text="Relatrórios" />
    </children>
 </AnchorPane>

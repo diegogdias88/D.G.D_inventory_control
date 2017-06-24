@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="838.0" style="-fx-background-color: WHITE;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="dgdsoft.controller.MovCompraController">
+<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="838.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MovCompraController">
    <children>
       <SplitPane dividerPositions="0.37799043062200954" prefHeight="598.0" prefWidth="838.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -20,6 +20,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <JFXTextField layoutX="57.0" layoutY="88.0" />
                </children>
             </AnchorPane>
         </items>
