@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -12,7 +13,7 @@
    <children>
       <AnchorPane minWidth="100.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #2981BD;">
          <children>
-            <Label layoutX="14.0" layoutY="8.0" text="Movimentaçao" textFill="#fffdfd">
+            <Label layoutX="148.0" layoutY="8.0" text="Movimentaçao" textFill="#fffdfd">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font>

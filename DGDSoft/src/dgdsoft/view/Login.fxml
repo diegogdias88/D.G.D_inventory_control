@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="368.0" prefWidth="386.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.LoginController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="368.0" prefWidth="386.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.LoginController">
    <children>
       <JFXTextField fx:id="login" layoutX="155.0" layoutY="173.0" prefHeight="25.0" prefWidth="123.0" unFocusColor="#171717" />
       <JFXPasswordField fx:id="password" layoutX="149.0" layoutY="244.0" />
@@ -19,7 +19,7 @@
       </ImageView>
       <Label layoutX="108.0" layoutY="190.0" text="Login:" />
       <Label layoutX="108.0" layoutY="248.0" text="Senha:" />
-      <JFXButton fx:id="btnLogin" layoutX="110.0" layoutY="308.0" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #2981BD;" text="Login" />
+      <JFXButton fx:id="btnLogin" layoutX="110.0" layoutY="308.0" onAction="#login" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #2981BD;" text="Login" />
       <JFXButton fx:id="btnCancelar" layoutX="229.0" layoutY="308.0" style="-fx-background-color: #2981BD;" text="Cancelar" />
    </children>
 </AnchorPane>
