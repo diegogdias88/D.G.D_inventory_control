@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -11,9 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="parentContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDPrincipalController">
    <children>
-      <AnchorPane prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;;">
+      <JFXButton fx:id="Movimentacao" buttonType="RAISED" layoutX="380.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="71.0" prefWidth="83.0" style="-fx-background-color: #2981BD;" text="Movimentações" />
+      <JFXButton fx:id="Cadastro" buttonType="RAISED" layoutX="191.0" layoutY="403.0" onAction="#openCadastro" prefHeight="71.0" prefWidth="97.0" style="-fx-background-color: #2981BD;" text="Cadastros" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;;">
          <children>
             <Label layoutX="1.0" layoutY="60.0" minHeight="3.0" prefHeight="0.0" prefWidth="1100.0" style="-fx-background-color: #3196DE;" />
             <Pane layoutX="388.0" layoutY="21.0" prefHeight="217.0" prefWidth="325.0" style="-fx-background-color: #3196DE;">
@@ -68,16 +68,5 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="btnCancelar" layoutX="580.0" layoutY="563.0" style="-fx-background-color: #2981BD;" text="Cancelar" />
-      <JFXButton fx:id="btnLogin" layoutX="461.0" layoutY="563.0" onAction="#acess" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #2981BD;" text="Login" />
-      <Label layoutX="459.0" layoutY="503.0" text="Senha:" />
-      <Label layoutX="459.0" layoutY="445.0" text="Login:" />
-      <ImageView fitHeight="85.0" fitWidth="100.0" layoutX="502.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagem/user_1.png" />
-         </image>
-      </ImageView>
-      <JFXPasswordField fx:id="password" layoutX="500.0" layoutY="499.0" />
-      <JFXTextField fx:id="login" layoutX="506.0" layoutY="428.0" prefHeight="25.0" prefWidth="123.0" unFocusColor="#171717" />
    </children>
 </AnchorPane>

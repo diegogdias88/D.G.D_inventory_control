@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dgdsoft.controller;
 
 import com.jfoenix.controls.JFXButton;
@@ -6,27 +11,21 @@ import com.jfoenix.controls.JFXTextField;
 import dgdsoft.model.dao.UsuarioDAO;
 import dgdsoft.model.database.Database;
 import dgdsoft.model.database.DatabaseFactory;
-import dgdsoft.model.domain.Cliente;
 import dgdsoft.model.domain.Usuario;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -39,7 +38,7 @@ import javafx.stage.StageStyle;
  *
  * @author diego
  */
-public class MainDGDController implements Initializable {
+public class MainDGDPrincipalController implements Initializable {
 
     @FXML    private Group groupPlanes;
     @FXML    private HBox menusHolder;
@@ -67,28 +66,7 @@ public class MainDGDController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         userDao.setConnection(connection);
         
-    }    
-    
-    @FXML
-    private void acess () throws IOException{
-        if(userDao.buscar(login.getText(), password.getText())){
-            
-            System.out.println("Login");
-        Stage newStage = new Stage();
-        newStage.initStyle(StageStyle.TRANSPARENT);
-        Parent parent = FXMLLoader.load(getClass().getResource("/dgdsoft/view/MainDGDPrincipal.fxml"));
-        Scene scene = new Scene(parent);
-        newStage.setScene(scene);
-        newStage.show();
-        btnLogin.getScene().getWindow().hide();
-            
-            
-        }else{
-            
-            System.out.println("Sem Login");
-        }
-        
-    }
+    }      
     
     @FXML
     private void exit(javafx.scene.input.MouseEvent event) {
@@ -123,4 +101,5 @@ public class MainDGDController implements Initializable {
         }
 
     }
+    
 }

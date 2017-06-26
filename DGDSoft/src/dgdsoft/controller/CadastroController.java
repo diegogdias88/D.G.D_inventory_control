@@ -47,8 +47,8 @@ public class CadastroController implements Initializable {
      @FXML
     private void goHomeAA(MouseEvent event) throws IOException {
         Stage newStage = new Stage();
-         newStage.initStyle(StageStyle.TRANSPARENT);
-        Parent parent = FXMLLoader.load(getClass().getResource("/dgdsoft/view/MainDGD.fxml"));
+        newStage.initStyle(StageStyle.TRANSPARENT);
+        Parent parent = FXMLLoader.load(getClass().getResource("/dgdsoft/view/MainDGDPrincipal.fxml"));
         Scene scene = new Scene(parent);
         newStage.setScene(scene);
         newStage.show();

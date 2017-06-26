@@ -20,24 +20,22 @@ public class UsuarioDAO {
         this.connection = connection;
     }
     
-    public Usuario buscar(Usuario usuario){
+    public boolean buscar(String user, String senha){
         String sql = "select * from usuario where usuario = ? and senha = ?";
         Usuario retorno = new Usuario();
         boolean existe = false;
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1,usuario.getUser());
-            stmt.setString(2, usuario.getPassword());
+            stmt.setString(1,user);
+            stmt.setString(2,senha );
             ResultSet resultado = stmt.executeQuery();
             if(resultado.next()){
-                usuario.setUser(resultado.getString("usuario"));
-                usuario.setPassword(resultado.getString("senha"));
-                retorno = usuario;
+                existe = true;
             }
         }catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null,ex);
         }
-        return retorno;
+        return existe;
     }
     
 }
