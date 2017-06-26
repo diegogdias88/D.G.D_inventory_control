@@ -1,5 +1,6 @@
 package dgdsoft.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
 import java.text.DateFormat;
@@ -25,22 +26,22 @@ import javafx.scene.control.ButtonType;
 
 public class CadClienteDialogController implements Initializable {
 
-    @FXML private TextField ClienteNome;
+    @FXML private JFXTextField ClienteNome;
     @FXML private ComboBox boxSexo;
     @FXML private ComboBox boxNacionalidade;
     @FXML private ComboBox boxEstCivil;
-    @FXML private TextField ClienteCPF;
-    @FXML private TextField ClienteRG;
-    @FXML private TextField ClienteNasc;
-    @FXML private TextField ClienteEnd;
-    @FXML private TextField ClienteNumero;
-    @FXML private TextField ClienteComp;
-    @FXML private TextField ClienteBairro;
+    @FXML private JFXTextField ClienteCPF;
+    @FXML private JFXTextField ClienteRG;
+    @FXML private JFXTextField ClienteNasc;
+    @FXML private JFXTextField ClienteEnd;
+    @FXML private JFXTextField ClienteNumero;
+    @FXML private JFXTextField ClienteComp;
+    @FXML private JFXTextField ClienteBairro;
     @FXML private ComboBox boxUF;
     @FXML private ComboBox boxCidade;
-    @FXML private TextField ClienteTelefone;
-    @FXML private TextField ClienteCelular;
-    @FXML private TextField ClienteEmail;
+    @FXML private JFXTextField ClienteTelefone;
+    @FXML private JFXTextField ClienteCelular;
+    @FXML private JFXTextField ClienteEmail;
     @FXML private Button btnConfirmar;
     @FXML private Button btnCancelar;
        

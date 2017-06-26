@@ -68,16 +68,34 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="btnCancelar" layoutX="580.0" layoutY="563.0" style="-fx-background-color: #2981BD;" text="Cancelar" />
-      <JFXButton fx:id="btnLogin" layoutX="461.0" layoutY="563.0" onAction="#acess" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #2981BD;" text="Login" />
-      <Label layoutX="459.0" layoutY="503.0" text="Senha:" />
-      <Label layoutX="459.0" layoutY="445.0" text="Login:" />
-      <ImageView fitHeight="85.0" fitWidth="100.0" layoutX="502.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="btnCancelar" layoutX="580.0" layoutY="563.0" style="-fx-background-color: #2981BD;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnLogin" layoutX="461.0" layoutY="563.0" onAction="#acess" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #2981BD;" text="Login" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+      <Label layoutX="459.0" layoutY="503.0" text="Senha:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="459.0" layoutY="454.0" text="Login:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ImageView fitHeight="123.0" fitWidth="113.0" layoutX="500.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imagem/user_1.png" />
+            <Image url="@../imagem/User_1.png" />
          </image>
       </ImageView>
-      <JFXPasswordField fx:id="password" layoutX="500.0" layoutY="499.0" />
-      <JFXTextField fx:id="login" layoutX="506.0" layoutY="428.0" prefHeight="25.0" prefWidth="123.0" unFocusColor="#171717" />
+      <JFXPasswordField fx:id="password" layoutX="506.0" layoutY="499.0" prefHeight="28.0" prefWidth="123.0">
+         <font>
+            <Font size="14.0" />
+         </font></JFXPasswordField>
+      <JFXTextField fx:id="login" layoutX="506.0" layoutY="437.0" prefHeight="25.0" prefWidth="123.0" unFocusColor="#171717">
+         <font>
+            <Font size="14.0" />
+         </font></JFXTextField>
    </children>
 </AnchorPane>
