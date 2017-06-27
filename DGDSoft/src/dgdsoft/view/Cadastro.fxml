@@ -17,14 +17,19 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgExit" fitHeight="26.0" fitWidth="26.0" layoutX="973.0" layoutY="12.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="22.0" layoutX="939.0" layoutY="12.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagem/exit.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgInfo" fitHeight="26.0" fitWidth="26.0" layoutX="936.0" layoutY="12.0" onMouseClicked="#goHomeAA" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgInfo" fitHeight="26.0" fitWidth="22.0" layoutX="902.0" layoutY="12.0" onMouseClicked="#goHomeAA" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagem/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgExit" fitHeight="16.0" fitWidth="16.0" layoutX="976.0" layoutY="15.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagem/closeW.png" />
                </image>
             </ImageView>
          </children>

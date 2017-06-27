@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDPrincipalController">
    <children>
-      <JFXButton fx:id="Movimentacao" buttonType="RAISED" layoutX="396.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040;" text="Movimentações" textFill="WHITE">
+      <JFXButton fx:id="Movimentacao" buttonType="RAISED" layoutX="396.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040; -fx-border-color: black;" text="Movimentações" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
@@ -67,19 +67,24 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView fx:id="imgExit" fitHeight="26.0" fitWidth="26.0" layoutX="1074.0" layoutY="8.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="1041.0" layoutY="8.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagem/exit.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="imgExit" fitHeight="16.0" fitWidth="16.0" layoutX="1077.0" layoutY="11.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagem/closeW.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="Graficos" buttonType="RAISED" layoutX="596.0" layoutY="403.0" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040;" text="Gráficos" textFill="WHITE">
+      <JFXButton fx:id="Graficos" buttonType="RAISED" layoutX="596.0" layoutY="403.0" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040; -fx-border-color: black;" text="Gráficos" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="Relatorios" buttonType="RAISED" layoutX="782.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040;" text="Relatórios" textFill="WHITE">
+      <JFXButton fx:id="Relatorios" buttonType="RAISED" layoutX="782.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040; -fx-border-color: black;" text="Relatórios" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

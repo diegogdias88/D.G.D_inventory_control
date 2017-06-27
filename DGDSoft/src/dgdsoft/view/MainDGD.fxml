@@ -62,9 +62,9 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView fx:id="imgExit" fitHeight="26.0" fitWidth="26.0" layoutX="1074.0" layoutY="8.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgExit" fitHeight="16.0" fitWidth="16.0" layoutX="1084.0" layoutY="1.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagem/exit.png" />
+                  <Image url="@../imagem/closeW.png" />
                </image>
             </ImageView>
          </children>
@@ -92,7 +92,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="login" focusColor="#30308d" layoutX="530.0" layoutY="451.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: white;" text="asdasdasd" unFocusColor="#f8f4f4">
+      <JFXTextField fx:id="login" focusColor="#30308d" layoutX="530.0" layoutY="451.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: white;" unFocusColor="#f8f4f4">
          <font>
             <Font size="14.0" />
          </font>
