@@ -120,7 +120,7 @@ public class MovCompraController implements Initializable {
         Venda venda = new Venda();
         List<ItemDeVenda> listItensDeVenda = new ArrayList<>();
         venda.setItensDeVenda(listItensDeVenda);
-        boolean buttonConfirmarClicked = showFXMLAnchorPaneProcessosVendasDialog(venda);
+        boolean buttonConfirmarClicked = showFXMLAnchorPaneProcessosCompraDialog(venda);
         if (buttonConfirmarClicked) {
             try {
                 connection.setAutoCommit(false);
@@ -132,7 +132,7 @@ public class MovCompraController implements Initializable {
                     Produto produto = listItemDeVenda.getProduto();
                     listItemDeVenda.setVenda(vendaDAO.buscarUltimaVenda());
                     itemDeVendaDAO.inserir(listItemDeVenda);
-                    produto.setQuantidade(produto.getQuantidade() - listItemDeVenda.getQuantidade());
+                    produto.setQuantidade(produto.getQuantidade() + listItemDeVenda.getQuantidade());
                     produtoDAO.alterar(produto);
                 }
                 connection.commit();
@@ -177,14 +177,14 @@ public class MovCompraController implements Initializable {
         }
     }
 
-    public boolean showFXMLAnchorPaneProcessosVendasDialog(Venda venda) throws IOException {
+    public boolean showFXMLAnchorPaneProcessosCompraDialog(Venda venda) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MovVendaDialogController.class.getResource("/dgdsoft/view/MovVendaDialog.fxml"));
+        loader.setLocation(MovVendaDialogController.class.getResource("/dgdsoft/view/MovCompraDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Criando um Estágio de Diálogo (Stage Dialog)
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Registro de Vendas");
+        dialogStage.setTitle("Registro de Compras");
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
 
