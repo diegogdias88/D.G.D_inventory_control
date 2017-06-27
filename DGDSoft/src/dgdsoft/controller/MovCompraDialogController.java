@@ -124,7 +124,7 @@ public class MovCompraDialogController implements Initializable {
         if (comboBoxVendaProduto.getSelectionModel().getSelectedItem() != null) {
             produto = (Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem();
 
-            if (produto.getEstoque() >= Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText())) {
+            
                 itemDeVenda.setProduto((Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem());
                 itemDeVenda.setQuantidade(Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText()));
                 itemDeVenda.setValor(itemDeVenda.getProduto().getValorvenda()* itemDeVenda.getQuantidade());
@@ -136,12 +136,7 @@ public class MovCompraDialogController implements Initializable {
                 tableViewItensDeVenda.setItems(observableListItensDeVenda);
 
                 textFieldVendaValor.setText(String.format("%.2f", venda.getValor()));
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Problemas na escolha do produto!");
-                alert.setContentText("Não existe a quantidade de produtos disponíveis no estoque!");
-                alert.show();
-            }
+            
         }
     }
 

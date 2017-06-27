@@ -163,7 +163,7 @@ public class MovCompraController implements Initializable {
             produtoDAO.setConnection(connection);
             for (ItemDeVenda listItemDeVenda : venda.getItensDeVenda()) {
                 Produto produto = listItemDeVenda.getProduto();
-                produto.setQuantidade(produto.getQuantidade() + listItemDeVenda.getQuantidade());
+                produto.setQuantidade(produto.getQuantidade() - listItemDeVenda.getQuantidade());
                 produtoDAO.alterar(produto);
                 itemDeVendaDAO.remover(listItemDeVenda);
             }
@@ -179,7 +179,7 @@ public class MovCompraController implements Initializable {
 
     public boolean showFXMLAnchorPaneProcessosCompraDialog(Venda venda) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MovVendaDialogController.class.getResource("/dgdsoft/view/MovCompraDialog.fxml"));
+        loader.setLocation(MovCompraDialogController.class.getResource("/dgdsoft/view/MovCompraDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Criando um Estágio de Diálogo (Stage Dialog)
@@ -189,7 +189,7 @@ public class MovCompraController implements Initializable {
         dialogStage.setScene(scene);
 
         // Setando a Venda no Controller.
-        MovVendaDialogController controller = loader.getController();
+        MovCompraDialogController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setVenda(venda);
 
