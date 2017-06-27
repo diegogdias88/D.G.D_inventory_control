@@ -33,7 +33,7 @@
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="Data" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label text="Data" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
@@ -54,7 +54,7 @@
                            </font>
                         </Label>
                         <Label fx:id="labelVendaCodigo" GridPane.columnIndex="1" />
-                        <Label fx:id="labelVendaData" prefHeight="17.0" prefWidth="125.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Label fx:id="labelVendaData" prefHeight="17.0" prefWidth="125.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                         <Label fx:id="labelVendaValor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="labelVendaPago" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="labelVendaCliente" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -63,6 +63,13 @@
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
                         </Label>
+                        <Label fx:id="labelVendaNumeroNota" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Serie" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelVendaSerie" prefHeight="17.0" prefWidth="73.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="80.0" />

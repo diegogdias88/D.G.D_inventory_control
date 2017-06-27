@@ -16,6 +16,8 @@ import dgdsoft.model.domain.ItemDeVenda;
 import dgdsoft.model.domain.Venda;
 
 public class VendaDAO {
+    
+    Integer tipo;
 
     private Connection connection;
 
@@ -28,13 +30,15 @@ public class VendaDAO {
     }
 
     public boolean inserir(Venda venda) {
-        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente, numeronota, serie,tipomov) VALUES(?,?,?,?,?,?,"+tipo+")";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate(1, Date.valueOf(venda.getData()));
             stmt.setDouble(2, venda.getValor());
             stmt.setBoolean(3, venda.getPago());
             stmt.setInt(4, venda.getCliente().getCdCliente());
+            stmt.setInt(5,venda.getNumeroNota());
+            stmt.setInt(6, venda.getSerie());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -44,14 +48,16 @@ public class VendaDAO {
     }
 
     public boolean alterar(Venda venda) {
-        String sql = "UPDATE clientes SET data=?, valor=?, pago=?, cdCliente=? WHERE cdVenda=?";
+        String sql = "UPDATE clientes SET data=?, valor=?, pago=?, cdCliente=?, numeronota=?, serie=? WHERE cdVenda=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate(1, Date.valueOf(venda.getData()));
             stmt.setDouble(2, venda.getValor());
             stmt.setBoolean(3, venda.getPago());
             stmt.setInt(4, venda.getCliente().getCdCliente());
-            stmt.setInt(5, venda.getCdVenda());
+            stmt.setInt(5, venda.getNumeroNota());
+            stmt.setInt(6, venda.getSerie());
+            stmt.setInt(7, venda.getCdVenda());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -89,6 +95,8 @@ public class VendaDAO {
                 venda.setValor(resultado.getDouble("valor"));
                 venda.setPago(resultado.getBoolean("pago"));
                 cliente.setCdCliente(resultado.getInt("cdCliente"));
+                venda.setNumeroNota(resultado.getInt("numeronota"));
+                venda.setSerie(resultado.getInt("serie"));
 
                 //Obtendo os dados completos do Cliente associado à Venda
                 ClienteDAO clienteDAO = new ClienteDAO();

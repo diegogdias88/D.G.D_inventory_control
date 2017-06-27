@@ -1,5 +1,6 @@
 package dgdsoft.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.List;
@@ -39,6 +40,8 @@ public class MovVendaDialogController implements Initializable {
     @FXML    private TableColumn<ItemDeVenda, Double> tableColumnItemDeVendaValor;
     @FXML    private TextField textFieldVendaValor;
     @FXML    private TextField textFieldVendaItemDeVendaQuantidade;
+    @FXML    private JFXTextField TextNumeroNota;
+    @FXML    private JFXTextField TextSerie;
     @FXML    private Button buttonConfirmar;
     @FXML    private Button buttonCancelar;
     @FXML    private Button buttonAdicionar;

@@ -32,7 +32,11 @@ public class CadastroController implements Initializable {
     @FXML   private Button btnCadProduto;
     @FXML   private ImageView imgExit;
     @FXML   private ImageView imgInfo;
-           
+    
+    @FXML   private ImageView ingCliente;
+       
+   
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -58,6 +62,7 @@ public class CadastroController implements Initializable {
     
     @FXML
     public void handleBtnCadastrosCliente() throws IOException{
+        //ClienteActive();
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/CadCliente.fxml"));
         anchorPane.getChildren().setAll(a);
     }
@@ -73,5 +78,6 @@ public class CadastroController implements Initializable {
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/CadProduto.fxml"));
         anchorPane.getChildren().setAll(a);
     }
-        
+    
+     
 }

@@ -60,6 +60,8 @@ public class MovVendaController implements Initializable {
     @FXML    private Label labelVendaValor;
     @FXML    private Label labelVendaPago;
     @FXML    private Label labelVendaCliente;
+    @FXML    private Label labelVendaNumeroNota;
+    @FXML    private Label labelVendaSerie;
     
     private List<Venda> listVendas;
     private ObservableList<Venda> observableListVendas;
@@ -103,6 +105,8 @@ public class MovVendaController implements Initializable {
             labelVendaValor.setText(String.format("%.2f", venda.getValor()));
             labelVendaPago.setText(String.valueOf(venda.getPago()));
             labelVendaCliente.setText(venda.getCliente().toString());
+            labelVendaNumeroNota.setText(String.valueOf(venda.getNumeroNota()));
+            labelVendaSerie.setText(String.valueOf(venda.getSerie()));
         } else {
             labelVendaCodigo.setText("");
             labelVendaData.setText("");
