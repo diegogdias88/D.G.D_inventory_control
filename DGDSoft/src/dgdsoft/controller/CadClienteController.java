@@ -24,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -164,6 +165,7 @@ public class CadClienteController implements Initializable {
         
         //cria um estagio de dialogo(Stage Dialog)
         Stage dialogStage = new Stage();
+        //dialogStage.initStyle(StageStyle.TRANSPARENT);
         dialogStage.setTitle("Cadastros de Clientes");
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);

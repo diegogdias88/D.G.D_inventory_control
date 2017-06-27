@@ -30,15 +30,15 @@ public class VendaDAO {
     }
 
     public boolean inserir(Venda venda) {
-        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente, numeronota, serie,tipomov) VALUES(?,?,?,?,?,?,"+tipo+")";
+        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente) VALUES(?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate(1, Date.valueOf(venda.getData()));
             stmt.setDouble(2, venda.getValor());
             stmt.setBoolean(3, venda.getPago());
             stmt.setInt(4, venda.getCliente().getCdCliente());
-            stmt.setInt(5,venda.getNumeroNota());
-            stmt.setInt(6, venda.getSerie());
+            //stmt.setInt(5,venda.getNumeroNota());
+            //stmt.setInt(6, venda.getSerie());
             stmt.execute();
             return true;
         } catch (SQLException ex) {

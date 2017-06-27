@@ -15,9 +15,9 @@
                <children>
                   <TableView fx:id="tableViewVendas" prefHeight="596.0" prefWidth="313.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
-                        <TableColumn fx:id="tableColumnVendaCodigo" prefWidth="61.0" text="Código" />
-                        <TableColumn fx:id="tableColumnVendaData" prefWidth="72.0" text="Data" />
-                        <TableColumn fx:id="tableColumnVendaCliente" prefWidth="159.0" text="Cliente" />
+                        <TableColumn fx:id="tableColumnVendaCodigo" prefWidth="68.0" text="Código" />
+                        <TableColumn fx:id="tableColumnVendaData" prefWidth="87.0" text="Data" />
+                        <TableColumn fx:id="tableColumnVendaCliente" prefWidth="137.0" text="Cliente" />
                      </columns>
                   </TableView>
                </children>
@@ -85,6 +85,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
+                  <Label layoutX="235.0" layoutY="11.0" text="Venda">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </items>
