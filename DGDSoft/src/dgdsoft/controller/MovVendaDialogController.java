@@ -151,6 +151,7 @@ public class MovVendaDialogController implements Initializable {
             venda.setCliente((Cliente) comboBoxVendaCliente.getSelectionModel().getSelectedItem());
             venda.setPago(checkBoxVendaPago.isSelected());
             venda.setData(datePickerVendaData.getValue());
+            
 
             buttonConfirmarClicked = true;
             dialogStage.close();

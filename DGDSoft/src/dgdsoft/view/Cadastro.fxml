@@ -10,7 +10,7 @@
 
 <VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.CadastroController">
    <children>
-      <AnchorPane minWidth="100.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #2981BD;">
+      <AnchorPane minWidth="100.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #1e3040;">
          <children>
             <Label layoutX="14.0" layoutY="8.0" text="Cadastros" textFill="#fffdfd">
                <font>
@@ -31,7 +31,7 @@
       </AnchorPane>
       <SplitPane dividerPositions="0.15731462925851702" prefHeight="600.0" prefWidth="1000.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="154.0" style="-fx-background-color: #2981BD;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="154.0" style="-fx-background-color: #1e3040;">
                <children>
                   <Button fx:id="btnCadCliente" alignment="CENTER" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBtnCadastrosCliente" prefHeight="65.0" prefWidth="123.0" text="Cliente" textFill="#1b1b1b">
                      <font>

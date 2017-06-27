@@ -11,7 +11,7 @@
 
 <VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MovimentacaoController">
    <children>
-      <AnchorPane minWidth="100.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #2981BD;">
+      <AnchorPane minWidth="100.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #1e3040;">
          <children>
             <Label layoutX="148.0" layoutY="8.0" text="Movimentaçao" textFill="#fffdfd">
                <font>
@@ -32,7 +32,7 @@
       </AnchorPane>
       <SplitPane dividerPositions="0.15731462925851702" prefHeight="600.0" prefWidth="1000.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="154.0" style="-fx-background-color: #2981BD;">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="154.0" style="-fx-background-color: #1e3040;">
                <children>
                   <Button fx:id="btnMovCompra" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBtnMovCompra" prefHeight="65.0" prefWidth="123.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );;" text="Compra">
                      <font>
