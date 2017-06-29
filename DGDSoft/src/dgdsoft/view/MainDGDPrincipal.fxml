@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDPrincipalController">
+<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dgdsoft.controller.MainDGDPrincipalController">
    <children>
       <JFXButton fx:id="Movimentacao" buttonType="RAISED" layoutX="396.0" layoutY="403.0" onAction="#openMovimentacao" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #1e3040; -fx-border-color: black;" text="Movimentações" textFill="WHITE">
          <font>
