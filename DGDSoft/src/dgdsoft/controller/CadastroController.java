@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,14 +46,14 @@ public class CadastroController implements Initializable {
     String activeStyle = "-fx-border-width: 0px 0px 0px 5px;"
             + "-fx-border-color:#FF4E3C";
 
-    //Image home = new Image("@../dgdsoft/imagem/home_1.png");
-    //Image homeRed = new Image("@../dgdsoft/imagem/homeRed.png");
-    //Image cliente = new Image("/dgdsoft/imagem/employe.png");
-    //Image clienteRed = new Image("/dgdsoft/imagem/employeRed.png");
-    //Image fornecedor = new Image("/dgdsoft/imagem/fornec.png");
-    //Image fornecedorRed = new Image("/dgdsoft/imagem/fornecRed.png");
-    //Image produto = new Image("/dgdsoft/imagem/stock.png");
-    //Image produtoRed = new Image("/dgdsoft/imagem/stockRed.png");
+    Image home = new Image("/dgdsoft/imagem/home_1.png");
+    Image homeRed = new Image("/dgdsoft/imagem/homeRed.png");
+    Image cliente = new Image("/dgdsoft/imagem/employe.png");
+    Image clienteRed = new Image("/dgdsoft/imagem/employeRed.png");
+    Image fornecedor = new Image("/dgdsoft/imagem/fornec.png");
+    Image fornecedorRed = new Image("/dgdsoft/imagem/fornecRed.png");
+    Image produto = new Image("/dgdsoft/imagem/stock.png");
+    Image produtoRed = new Image("/dgdsoft/imagem/stockRed.png");
     
     
     @Override
@@ -68,6 +69,7 @@ public class CadastroController implements Initializable {
         
      @FXML
     private void goHomeAA(MouseEvent event) throws IOException {
+        homeActive();
         Stage newStage = new Stage();
         newStage.initStyle(StageStyle.TRANSPARENT);
         Parent parent = FXMLLoader.load(getClass().getResource("/dgdsoft/view/MainDGDPrincipal.fxml"));
@@ -78,7 +80,8 @@ public class CadastroController implements Initializable {
     }
     
      @FXML
-    private void goHomeBB() throws IOException {
+    private void goHomeBB(ActionEvent event) throws IOException {
+        homeActive();
         Stage newStage = new Stage();
         newStage.initStyle(StageStyle.TRANSPARENT);
         Parent parent = FXMLLoader.load(getClass().getResource("/dgdsoft/view/MainDGDPrincipal.fxml"));
@@ -100,33 +103,68 @@ public class CadastroController implements Initializable {
     }
     
     @FXML
-    public void handleBtnCadastrosCliente() throws IOException{
-        //ClienteActive();
+    public void handleBtnCadastrosCliente(ActionEvent event) throws IOException{
+        clienteActive();
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/CadCliente.fxml"));
         anchorPane.getChildren().setAll(a);
     }
     
     @FXML
-    public void handleBtndastrosFornecedor() throws IOException{
+    public void handleBtndastrosFornecedor(ActionEvent event) throws IOException{
+        fornecActive();
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/CadFornecedor.fxml"));
         anchorPane.getChildren().setAll(a);
     }
     
     @FXML
-    public void handleBtnCadastrosProduto() throws IOException{
+    public void handleBtnCadastrosProduto(ActionEvent event) throws IOException{
+        produtoActive();
         AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/dgdsoft/view/CadProduto.fxml"));
         anchorPane.getChildren().setAll(a);
     }
     
     private void homeActive(){
-       //ingHome.setImage(homeRed);
-       //ingCliente.setImage(cliente);
-       //ingFornecedor.setImage(fornecedor);
-       //ingProduto.setImage(produto);
-       //btnHome.setStyle(activeStyle);
-       //btnCadCliente.setStyle(defultStyle);
-       //btnCadFornecedor.setStyle(defultStyle);
-       //btnCadProduto.setStyle(defultStyle);
+       ingHome.setImage(homeRed);
+       ingCliente.setImage(cliente);
+       ingFornecedor.setImage(fornecedor);
+       ingProduto.setImage(produto);
+       btnHome.setStyle(activeStyle);
+       btnCadCliente.setStyle(defultStyle);
+       btnCadFornecedor.setStyle(defultStyle);
+       btnCadProduto.setStyle(defultStyle);
     }
     
+    private void clienteActive(){
+       ingHome.setImage(home);
+       ingCliente.setImage(clienteRed);
+       ingFornecedor.setImage(fornecedor);
+       ingProduto.setImage(produto);
+       btnHome.setStyle(defultStyle);
+       btnCadCliente.setStyle(activeStyle);
+       btnCadFornecedor.setStyle(defultStyle);
+       btnCadProduto.setStyle(defultStyle);
+    }
+    
+   private void fornecActive(){
+       ingHome.setImage(home);
+       ingCliente.setImage(cliente);
+       ingFornecedor.setImage(fornecedorRed);
+       ingProduto.setImage(produto);
+       btnHome.setStyle(defultStyle);
+       btnCadCliente.setStyle(defultStyle);
+       btnCadFornecedor.setStyle(activeStyle);
+       btnCadProduto.setStyle(defultStyle);
+    } 
+    
+   private void produtoActive(){
+       ingHome.setImage(home);
+       ingCliente.setImage(cliente);
+       ingFornecedor.setImage(fornecedor);
+       ingProduto.setImage(produtoRed);
+       btnHome.setStyle(defultStyle);
+       btnCadCliente.setStyle(defultStyle);
+       btnCadFornecedor.setStyle(defultStyle);
+       btnCadProduto.setStyle(activeStyle);
+    } 
+   
 }
