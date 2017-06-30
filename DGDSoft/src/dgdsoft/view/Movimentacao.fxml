@@ -18,7 +18,7 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgExit" fitHeight="26.0" fitWidth="22.0" layoutX="948.0" layoutY="14.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ingLoggout" fitHeight="26.0" fitWidth="22.0" layoutX="948.0" layoutY="14.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagem/exit.png" />
                </image>
@@ -28,7 +28,7 @@
                   <Image url="@../imagem/home.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgExit1" fitHeight="16.0" fitWidth="16.0" layoutX="978.0" layoutY="17.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgExit" fitHeight="16.0" fitWidth="16.0" layoutX="978.0" layoutY="17.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagem/closeW.png" />
                </image>
@@ -39,28 +39,40 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="154.0" style="-fx-background-color: #1e3040;">
                <children>
-                  <Button fx:id="btnMovCompra" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBtnMovCompra" prefHeight="65.0" prefWidth="123.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );;" text="Compra">
+                  <Button fx:id="btnMovCompra" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleBtnMovCompra" prefHeight="65.0" prefWidth="123.0" text="Compra">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fx:id="ingHome" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ingBuy" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imagem/buy.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="btnMovVenda" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleBtnMovVenda" prefHeight="65.0" prefWidth="123.0" text="Venda">
+                  <Button fx:id="btnMovVenda" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="14.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleBtnMovVenda" prefHeight="65.0" prefWidth="123.0" text="Venda">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fx:id="ingHome1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="ingSell" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imagem/sell2.png" />
                            </image>
                         </ImageView>
                      </graphic></Button>
+                  <Button fx:id="btnHome" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#goHomeBB" prefHeight="65.0" prefWidth="123.0" text="Home" textFill="#1b1b1b">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="ingHome" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" x="16.0">
+                           <image>
+                              <Image url="@../imagem/home_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
