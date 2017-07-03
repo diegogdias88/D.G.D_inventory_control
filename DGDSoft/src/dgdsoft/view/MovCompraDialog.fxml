@@ -43,8 +43,8 @@
             </HBox>
             <Label text="Numero da Nota" />
             <Label text="Serie" GridPane.rowIndex="1" />
-            <JFXTextField fx:id="TextNumeroNota" GridPane.columnIndex="1" />
-            <JFXTextField fx:id="TextSerie" prefHeight="25.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="numeroNota" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="numeroSerie" prefHeight="25.0" prefWidth="166.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="33.0" />

@@ -17,14 +17,13 @@ public class Produto implements Serializable {
     private String unidade;
     private String cnae;
     
-    private int quantidade;
 
     public Produto() {
     }
 
-    public Produto(int cdProduto, String nome, String fornecedor,String categoria, int codBarras, int estoqueMin,
-                    double valorcusto, double valorlucro,double valorvenda, int estoque,String unidade,
-                    String cnae,int quantidade ) 
+    public Produto(int cdProduto, String nome, String fornecedor,String categoria, int codBarras, 
+            int estoqueMin,  double valorcusto, double valorlucro,double valorvenda, int estoque,
+            String unidade,  String cnae ) 
     {
         this.cdProduto = cdProduto;
         this.nome = nome;
@@ -38,7 +37,6 @@ public class Produto implements Serializable {
         this.estoque = estoque;
         this.unidade = unidade;
         this.cnae = cnae;
-        this.quantidade = quantidade;
     }
 
     public int getCdProduto() {
@@ -137,13 +135,7 @@ public class Produto implements Serializable {
         this.cnae = cnae;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
+    
     
     
     @Override

@@ -92,7 +92,7 @@ public class MovCompraController implements Initializable {
         tableColumnVendaData.setCellValueFactory(new PropertyValueFactory<>("data"));
         tableColumnVendaCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
 
-        listVendas = vendaDAO.listar();
+        listVendas = vendaDAO.listarCompra();
 
         observableListVendas = FXCollections.observableArrayList(listVendas);
         tableViewVendas.setItems(observableListVendas);
@@ -105,7 +105,6 @@ public class MovCompraController implements Initializable {
             labelVendaValor.setText(String.format("%.2f", venda.getValor()));
             labelVendaPago.setText(String.valueOf(venda.getPago()));
             labelVendaCliente.setText(venda.getCliente().toString());
-            labelVendaNumeroNota.setText(String.valueOf(venda.getNumeroNota()));
         } else {
             labelVendaCodigo.setText("");
             labelVendaData.setText("");
@@ -114,13 +113,13 @@ public class MovCompraController implements Initializable {
             labelVendaCliente.setText("");
         }
     }
-    
+
     @FXML
     public void handleButtonInserir() throws IOException {
         Venda venda = new Venda();
         List<ItemDeVenda> listItensDeVenda = new ArrayList<>();
         venda.setItensDeVenda(listItensDeVenda);
-        boolean buttonConfirmarClicked = showFXMLAnchorPaneProcessosCompraDialog(venda);
+        boolean buttonConfirmarClicked = showFXMLAnchorPaneProcessosVendasDialog(venda);
         if (buttonConfirmarClicked) {
             try {
                 connection.setAutoCommit(false);
@@ -132,7 +131,7 @@ public class MovCompraController implements Initializable {
                     Produto produto = listItemDeVenda.getProduto();
                     listItemDeVenda.setVenda(vendaDAO.buscarUltimaVenda());
                     itemDeVendaDAO.inserir(listItemDeVenda);
-                    produto.setQuantidade(produto.getQuantidade() + listItemDeVenda.getQuantidade());
+                    produto.setEstoque(produto.getEstoque()- listItemDeVenda.getQuantidade());
                     produtoDAO.alterar(produto);
                 }
                 connection.commit();
@@ -163,7 +162,7 @@ public class MovCompraController implements Initializable {
             produtoDAO.setConnection(connection);
             for (ItemDeVenda listItemDeVenda : venda.getItensDeVenda()) {
                 Produto produto = listItemDeVenda.getProduto();
-                produto.setQuantidade(produto.getQuantidade() - listItemDeVenda.getQuantidade());
+                produto.setEstoque(produto.getEstoque() + listItemDeVenda.getQuantidade());
                 produtoDAO.alterar(produto);
                 itemDeVendaDAO.remover(listItemDeVenda);
             }
@@ -177,19 +176,19 @@ public class MovCompraController implements Initializable {
         }
     }
 
-    public boolean showFXMLAnchorPaneProcessosCompraDialog(Venda venda) throws IOException {
+    public boolean showFXMLAnchorPaneProcessosVendasDialog(Venda venda) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MovCompraDialogController.class.getResource("/dgdsoft/view/MovCompraDialog.fxml"));
+        loader.setLocation(MovVendaDialogController.class.getResource("/dgdsoft/view/MovCompraDialog.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Criando um Estágio de Diálogo (Stage Dialog)
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Registro de Compras");
+        dialogStage.setTitle("Registro de Vendas");
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
 
         // Setando a Venda no Controller.
-        MovCompraDialogController controller = loader.getController();
+        MovVendaDialogController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setVenda(venda);
 
@@ -200,5 +199,4 @@ public class MovCompraController implements Initializable {
 
     }
 
-    
 }

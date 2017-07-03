@@ -14,17 +14,20 @@ public class Venda implements Serializable {
     private Cliente cliente;
     private Integer numeroNota;
     private Integer serie;
+    private Integer tipoMovimento;
 
     public Venda() {
     }
 
-    public Venda(int cdvenda, LocalDate data, double valor, boolean pago, Integer numeroNota, Integer serie) {
+    public Venda(int cdvenda, LocalDate data, double valor, boolean pago, Integer numeroNota, 
+            Integer serie, Integer tipoMovimento) {
         this.cdVenda = cdvenda;
         this.data = data;
         this.valor = valor;
         this.pago = pago;
         this.numeroNota = numeroNota;
         this.serie = serie;
+        this.tipoMovimento = tipoMovimento;
     }
 
     public int getCdVenda() {
@@ -90,4 +93,14 @@ public class Venda implements Serializable {
     public void setSerie(Integer serie) {
         this.serie = serie;
     }
+    
+     public Integer getTipoMovimento() {
+        return tipoMovimento;
+    }
+
+    public void setTipoMovimento(Integer tipoMovimento) {
+        this.tipoMovimento = tipoMovimento;
+    }
+
+    
 }

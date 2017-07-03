@@ -30,13 +30,14 @@ public class VendaDAO {
     }
 
     public boolean inserir(Venda venda) {
-        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO vendas(data, valor, pago, cdCliente, tipomov) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate(1, Date.valueOf(venda.getData()));
             stmt.setDouble(2, venda.getValor());
             stmt.setBoolean(3, venda.getPago());
             stmt.setInt(4, venda.getCliente().getCdCliente());
+            stmt.setInt(5,venda.getTipoMovimento());
             //stmt.setInt(5,venda.getNumeroNota());
             //stmt.setInt(6, venda.getSerie());
             stmt.execute();
@@ -79,8 +80,47 @@ public class VendaDAO {
         }
     }
 
-    public List<Venda> listar() {
-        String sql = "SELECT * FROM vendas";
+    public List<Venda> listarVenda() {
+        String sql = "SELECT * FROM vendas where tipomov = 1";
+        List<Venda> retorno = new ArrayList<>();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next()) {
+                Venda venda = new Venda();
+                Cliente cliente = new Cliente();
+                List<ItemDeVenda> itensDeVenda = new ArrayList();
+
+                venda.setCdVenda(resultado.getInt("cdVenda"));
+                venda.setData(resultado.getDate("data").toLocalDate());
+                venda.setValor(resultado.getDouble("valor"));
+                venda.setPago(resultado.getBoolean("pago"));
+                cliente.setCdCliente(resultado.getInt("cdCliente"));
+                venda.setNumeroNota(resultado.getInt("numeronota"));
+                venda.setSerie(resultado.getInt("serie"));
+
+                //Obtendo os dados completos do Cliente associado à Venda
+                ClienteDAO clienteDAO = new ClienteDAO();
+                clienteDAO.setConnection(connection);
+                cliente = clienteDAO.buscar(cliente);
+
+                //Obtendo os dados completos dos Itens de Venda associados à Venda
+                ItemDeVendaDAO itemDeVendaDAO = new ItemDeVendaDAO();
+                itemDeVendaDAO.setConnection(connection);
+                itensDeVenda = itemDeVendaDAO.listarPorVenda(venda);
+
+                venda.setCliente(cliente);
+                venda.setItensDeVenda(itensDeVenda);
+                retorno.add(venda);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }
+    
+    public List<Venda> listarCompra() {
+        String sql = "SELECT * FROM vendas where tipomov = 2";
         List<Venda> retorno = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);

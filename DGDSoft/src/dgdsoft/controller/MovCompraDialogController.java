@@ -40,8 +40,8 @@ public class MovCompraDialogController implements Initializable {
     @FXML    private TableColumn<ItemDeVenda, Double> tableColumnItemDeVendaValor;
     @FXML    private TextField textFieldVendaValor;
     @FXML    private TextField textFieldVendaItemDeVendaQuantidade;
-    @FXML    private JFXTextField TextNumeroNota;
-    @FXML    private JFXTextField TextSerie;
+    @FXML    private JFXTextField numeroNota;
+    @FXML    private JFXTextField numeroSerie;
     @FXML    private Button buttonConfirmar;
     @FXML    private Button buttonCancelar;
     @FXML    private Button buttonAdicionar;
@@ -124,10 +124,9 @@ public class MovCompraDialogController implements Initializable {
         if (comboBoxVendaProduto.getSelectionModel().getSelectedItem() != null) {
             produto = (Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem();
 
-            
                 itemDeVenda.setProduto((Produto) comboBoxVendaProduto.getSelectionModel().getSelectedItem());
                 itemDeVenda.setQuantidade(Integer.parseInt(textFieldVendaItemDeVendaQuantidade.getText()));
-                itemDeVenda.setValor(itemDeVenda.getProduto().getValorvenda()* itemDeVenda.getQuantidade());
+                itemDeVenda.setValor(itemDeVenda.getProduto().getValorvenda() * itemDeVenda.getQuantidade());
 
                 venda.getItensDeVenda().add(itemDeVenda);
                 venda.setValor(venda.getValor() + itemDeVenda.getValor());
@@ -136,9 +135,13 @@ public class MovCompraDialogController implements Initializable {
                 tableViewItensDeVenda.setItems(observableListItensDeVenda);
 
                 textFieldVendaValor.setText(String.format("%.2f", venda.getValor()));
-            
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Problemas na escolha do produto!");
+                alert.show();
+            }
         }
-    }
+    
 
     @FXML
     public void handleButtonConfirmar() {
@@ -146,7 +149,9 @@ public class MovCompraDialogController implements Initializable {
             venda.setCliente((Cliente) comboBoxVendaCliente.getSelectionModel().getSelectedItem());
             venda.setPago(checkBoxVendaPago.isSelected());
             venda.setData(datePickerVendaData.getValue());
-            
+            venda.setTipoMovimento(2);
+            venda.setNumeroNota(Integer.parseInt(numeroNota.getText()));
+            venda.setSerie(Integer.parseInt(numeroSerie.getText()));
 
             buttonConfirmarClicked = true;
             dialogStage.close();

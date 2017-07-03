@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dgdsoft.controller;
 
 import dgdsoft.model.dao.ItemDeVendaDAO;
@@ -61,8 +57,7 @@ public class MovVendaController implements Initializable {
     @FXML    private Label labelVendaPago;
     @FXML    private Label labelVendaCliente;
     @FXML    private Label labelVendaNumeroNota;
-    @FXML    private Label labelVendaSerie;
-    
+
     private List<Venda> listVendas;
     private ObservableList<Venda> observableListVendas;
 
@@ -72,7 +67,7 @@ public class MovVendaController implements Initializable {
     private final VendaDAO vendaDAO = new VendaDAO();
     private final ItemDeVendaDAO itemDeVendaDAO = new ItemDeVendaDAO();
     private final ProdutoDAO produtoDAO = new ProdutoDAO();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         vendaDAO.setConnection(connection);
@@ -85,14 +80,17 @@ public class MovVendaController implements Initializable {
         // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
         tableViewVendas.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> selecionarItemTableViewVendas(newValue));
-    }    
-    
+    }
+
     public void carregarTableViewVendas() {
         tableColumnVendaCodigo.setCellValueFactory(new PropertyValueFactory<>("cdVenda"));
         tableColumnVendaData.setCellValueFactory(new PropertyValueFactory<>("data"));
         tableColumnVendaCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
-
-        listVendas = vendaDAO.listar();
+        
+        Venda venda = new Venda();
+        
+        listVendas = vendaDAO.listarVenda();
+        
 
         observableListVendas = FXCollections.observableArrayList(listVendas);
         tableViewVendas.setItems(observableListVendas);
@@ -105,8 +103,6 @@ public class MovVendaController implements Initializable {
             labelVendaValor.setText(String.format("%.2f", venda.getValor()));
             labelVendaPago.setText(String.valueOf(venda.getPago()));
             labelVendaCliente.setText(venda.getCliente().toString());
-            labelVendaNumeroNota.setText(String.valueOf(venda.getNumeroNota()));
-            labelVendaSerie.setText(String.valueOf(venda.getSerie()));
         } else {
             labelVendaCodigo.setText("");
             labelVendaData.setText("");
@@ -115,7 +111,7 @@ public class MovVendaController implements Initializable {
             labelVendaCliente.setText("");
         }
     }
-    
+
     @FXML
     public void handleButtonInserir() throws IOException {
         Venda venda = new Venda();
@@ -133,7 +129,7 @@ public class MovVendaController implements Initializable {
                     Produto produto = listItemDeVenda.getProduto();
                     listItemDeVenda.setVenda(vendaDAO.buscarUltimaVenda());
                     itemDeVendaDAO.inserir(listItemDeVenda);
-                    produto.setQuantidade(produto.getQuantidade() - listItemDeVenda.getQuantidade());
+                    produto.setEstoque(produto.getEstoque()- listItemDeVenda.getQuantidade());
                     produtoDAO.alterar(produto);
                 }
                 connection.commit();
@@ -164,7 +160,7 @@ public class MovVendaController implements Initializable {
             produtoDAO.setConnection(connection);
             for (ItemDeVenda listItemDeVenda : venda.getItensDeVenda()) {
                 Produto produto = listItemDeVenda.getProduto();
-                produto.setQuantidade(produto.getQuantidade() + listItemDeVenda.getQuantidade());
+                produto.setEstoque(produto.getEstoque() - listItemDeVenda.getQuantidade());
                 produtoDAO.alterar(produto);
                 itemDeVendaDAO.remover(listItemDeVenda);
             }
@@ -201,5 +197,4 @@ public class MovVendaController implements Initializable {
 
     }
 
-    
 }
