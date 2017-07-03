@@ -94,7 +94,7 @@ public class MainDGDPrincipalController implements Initializable {
             stage.setScene(scene);
             stage.show();
             currentStage.hide();
-            stage.getIcons().add(new Image (getClass().getResourceAsStream("/dgdsoft/imagem/balance.png")));
+            stage.getIcons().add(new Image (getClass().getResourceAsStream("/dgdsoft/imagem/logo.png")));
 
         } catch (IOException ex) {
             Logger.getLogger(MainDGDController.class.getName()).log(Level.SEVERE, null, ex);

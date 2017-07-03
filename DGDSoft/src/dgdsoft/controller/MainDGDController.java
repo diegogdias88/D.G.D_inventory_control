@@ -67,7 +67,7 @@ public class MainDGDController implements Initializable {
             Scene scene = new Scene(parent);
             newStage.setScene(scene);
             newStage.show();
-            newStage.getIcons().add(new Image (getClass().getResourceAsStream("/dgdsoft/imagem/balance.png")));
+            newStage.getIcons().add(new Image (getClass().getResourceAsStream("/dgdsoft/imagem/logo.png")));
             btnLogin.getScene().getWindow().hide();           
         }else{
             
